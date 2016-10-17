@@ -3,17 +3,7 @@ var webpack = require("webpack"),
 	ExtractTextPlugin = require("extract-text-webpack-plugin"),
 	helpers = require("./helpers");
 
-const devEnvVars = require("./development.json");
-const testEnvVars = require("./test.json");
-const prodEnvVars = require("./production.json");
-const lessonVars = require("./lessons.json");
-
-const ENV = process.env.NODE_ENV;
-const LESSON = process.env.LESSON;
-const isTest = ["test", "testing"].includes(ENV);
-const isProduction = ["prod", "production"].includes(ENV);
-const isDev = !isTest && !isProduction;
-const lessonPath = LESSON ? lessonVars[LESSON] : "";
+const lessonPath = process.env.lesson;
 
 module.exports = {
 	context: helpers.root() + "/" + lessonPath + "/src",

@@ -17,10 +17,11 @@
   </div>
 
   <div class="form-group">
-    <label for="gender" class="control-label">Gender</label>
-    <select id="gender" class="form-control" name="gender" [(ngModel)]="gender">
-      <option value="'male'">Male</option>
-      <option value="'female'">Female</option>
+    <label for="handedness" class="control-label">Handedness</label>
+    <select id="handedness" class="form-control" name="handedness" [(ngModel)]="handedness">
+      <option value="'left'">Left</option>
+      <option value="'right'">Right</option>
+      <option value="'ambidextrous'">Ambidextrous</option>
     </select>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="!personForm.valid">Submit</button>

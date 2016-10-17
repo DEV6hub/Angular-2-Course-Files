@@ -1,42 +1,42 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { NgForm, NgModel } from '@angular/forms';
-
-import { Person } from './person.model';
+import {Component, Output, EventEmitter} from "@angular/core";
+import {FormBuilder, FormGroup, Validators, FormControl} from "@angular/forms";
+import {Person} from "./person.model";
+import {handednessValidator} from "./handedness.validator";
 
 @Component({
-  selector: 'person-form',
-  template: require('./person-form.component.html')
+	selector: 'person-form',
+	template: require('./person-form.component.html')
 })
 export class PersonFormComponent {
-  @Output() submitted = new EventEmitter<Person>();
-  firstName: string;
-  lastName: string;
-  gender: 'male' | 'female';
-  age: number;
-  active = true;
-
-  submitForm() {
-    console.log('submitForm called');
-    let person = new Person(this.firstName, this.lastName);
-    person.gender = this.gender;
-    person.age = this.age;
-
-    this.submitted.emit(person);
-    this.resetForm();
-  }
-
-  isInvalid(input: NgModel, form: NgForm): boolean {
-    return !input.valid && (input.touched || form.submitted);
-  }
-
-  private resetForm() {
-    this.firstName = undefined;
-    this.lastName = undefined;
-    this.gender = undefined;
-    this.age = undefined;
-
-    // Form state reset trick. Waiting for framework support
-    this.active = false;
-    setTimeout(() => this.active = true, 0);
-  }
+	@Output() submission = new EventEmitter<Person>();
+	form: FormGroup;
+	submitted: boolean = false;
+	
+	constructor( private formBuilder: FormBuilder ) {
+		this.form = formBuilder.group({
+			firstName: ["", Validators.required],
+			lastName: ["", Validators.required],
+			handedness: ["", handednessValidator],
+			age: []
+		})
+	}
+	
+	submitForm() {
+		this.submitted = true;
+		if ( this.form.valid ) {
+			let person = Object.assign(new Person(), this.form.value);
+			this.submission.emit(person);
+			this.resetForm();
+		}
+	}
+	
+	isInvalid(control: string): boolean {
+		let formControl: FormControl = <FormControl> this.form.get(control);
+		return (formControl.touched && !formControl.valid) || this.submitted;
+	}
+	
+	private resetForm() {
+		this.submitted = false;
+		this.form.reset();
+	}
 }

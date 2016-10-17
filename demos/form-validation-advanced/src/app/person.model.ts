@@ -1,9 +1,8 @@
 export class Person {
-  gender: 'male' | 'female';
-  age: number;
-
-  constructor(
-    public firstName: string,
-    public lastName: string
-  ) { }
+	firstName: string;
+	lastName: string;
+	gender: 'male' | 'female';
+	age: number;
+	
+	constructor() { }
 }

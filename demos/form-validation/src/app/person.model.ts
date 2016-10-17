@@ -1,5 +1,5 @@
 export class Person {
-  gender: 'male' | 'female';
+  handedness: "left" | "right";
   age: number;
 
   constructor(

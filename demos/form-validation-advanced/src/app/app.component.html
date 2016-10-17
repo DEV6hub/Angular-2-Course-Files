@@ -4,5 +4,5 @@
   <person-details [person]="person" *ngIf="person"></person-details>
   <p *ngIf="!person">Please submit a person</p>
 
-  <person-form (submitted)="personCreated($event)"></person-form>
+  <person-form (submission)="personCreated($event)"></person-form>
 </div>

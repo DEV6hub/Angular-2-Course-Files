@@ -11,14 +11,13 @@ export class PersonFormComponent {
   @Output() submitted = new EventEmitter<Person>();
   firstName: string;
   lastName: string;
-  gender: 'male' | 'female';
+  handedness: 'left' | 'right';
   age: number;
   active = true;
 
   submitForm() {
-    console.log('submitForm called');
     let person = new Person(this.firstName, this.lastName);
-    person.gender = this.gender;
+    person.handedness = this.handedness;
     person.age = this.age;
 
     this.submitted.emit(person);
@@ -32,7 +31,7 @@ export class PersonFormComponent {
   private resetForm() {
     this.firstName = undefined;
     this.lastName = undefined;
-    this.gender = undefined;
+    this.handedness = undefined;
     this.age = undefined;
 
     // Form state reset trick. Waiting for framework support
