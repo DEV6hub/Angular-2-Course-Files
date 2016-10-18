@@ -36,7 +36,7 @@ router.put('/:id', function update(req, res) {
   const id = +req.params.id;
   const person = people.find(cat => cat.id === id);
 
-  if (person && isObject(req.body)) {
+  if (person) {
     delete req.body.id;
     Object.assign(person, req.body);
     res.json(person);
