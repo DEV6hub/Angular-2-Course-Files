@@ -25,6 +25,7 @@
     "e2e": "protractor"
   },
   "devDependencies": {
+    "angular2-router-loader": "0.3.3",
     "chai": "3.5.0",
     "copy-webpack-plugin": "3.0.1",
     "css-loader": "^0.23.1",
