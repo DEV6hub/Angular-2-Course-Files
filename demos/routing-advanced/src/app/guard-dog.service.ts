@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Router, CanLoad, Route} from "@angular/router";
+import {CanLoad, Route} from "@angular/router";
 import {DogService} from "./dogs/dog.service";
 
 @Injectable()

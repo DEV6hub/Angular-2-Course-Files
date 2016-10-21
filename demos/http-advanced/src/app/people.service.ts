@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-
-import { Person } from './person';
-import {HttpWrapper} from "./http-wrapper.service";
+import {Injectable} from "@angular/core";
+import {Http} from "@angular/http";
+import {Observable} from "rxjs/Observable";
+import {Person} from "./person";
 
 @Injectable()
 export class PeopleService {
 	favourite: Person;
 	private urlBase = 'http://localhost:9000';
 	
-	constructor(private http: HttpWrapper) {}
+	constructor(private http: Http) {}
 	
 	getPeople(): Observable<Person[]> {
 		return this.http.get(`${this.urlBase}/people`)

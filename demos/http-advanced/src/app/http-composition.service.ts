@@ -3,7 +3,7 @@ import {Http, BaseRequestOptions, RequestOptionsArgs, Response, Request, Respons
 import {Observable} from "rxjs";
 
 @Injectable()
-export class HttpWrapper {
+export class HttpComposition {
 	constructor(private http: Http) {}
 	
 	get(url: string, options?: RequestOptionsArgs): Observable<Response> {
