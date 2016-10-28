@@ -17,13 +17,8 @@
     "server": "webpack-dev-server --inline --progress --display-error-details --port 8080",
     "start": "npm run server",
     "test": "karma start",
-    "test:watch": "karma start --no-single-run --auto-watch",
     "typings": "typings",
-    "webdriver:update": "webdriver-manager update",
-    "prewebdriver:start": "webdriver-manager update",
-    "webdriver:start": "webdriver-manager start",
-    "e2e": "protractor",
-    "api-server": "node server/server.js"
+    "api-server": "node resources/server/server.js"
   },
   "devDependencies": {
     "chai": "3.5.0",

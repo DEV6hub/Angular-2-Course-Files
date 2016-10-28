@@ -3,12 +3,14 @@ var webpack = require("webpack"),
 	ExtractTextPlugin = require("extract-text-webpack-plugin"),
 	helpers = require("./helpers");
 
+const exercisePath = process.env.exercise;
+
 module.exports = {
-	context: helpers.root() + "/src",
+	context: helpers.root() + "/" + exercisePath + "/src",
 	entry: {
 		app: "./main.ts",
-		vendor: "./../common/vendor.ts",
-		polyfills: "./../common/polyfills.ts"
+		vendor: helpers.root() + "/common/vendor.ts",
+		polyfills: helpers.root() + "/common/polyfills.ts"
 	},
 	
 	resolve: {
