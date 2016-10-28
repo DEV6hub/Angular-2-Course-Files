@@ -5,9 +5,10 @@ import {CatModule} from "./cats/cat.module";
 import {AppRoutingModule} from "./app-routing.module";
 import {PetListComponent} from "./pet-list.component";
 import {PetService} from "./pet.service";
+import {DogModule} from "./dogs/dog.module";
 
 @NgModule({
-	imports: [BrowserModule, CatModule, AppRoutingModule],
+	imports: [BrowserModule, CatModule, DogModule, AppRoutingModule],
 	declarations: [AppComponent, PetListComponent],
 	providers: [PetService],
 	bootstrap: [AppComponent]
