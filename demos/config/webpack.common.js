@@ -1,6 +1,7 @@
 var webpack = require("webpack"),
 	HtmlWebpackPlugin = require("html-webpack-plugin"),
 	ExtractTextPlugin = require("extract-text-webpack-plugin"),
+	CopyWebpackPlugin = require("copy-webpack-plugin"),
 	helpers = require("./helpers");
 
 const lessonPath = process.env.lesson;
@@ -52,6 +53,10 @@ module.exports = {
 		new webpack.optimize.CommonsChunkPlugin({
 			name: ["app", "vendor", "polyfills"]
 		}),
+		
+		new CopyWebpackPlugin([{
+			from: "i18n", to: "i18n"
+		}]),
 		
 		new HtmlWebpackPlugin({
 			template: "index.html"
