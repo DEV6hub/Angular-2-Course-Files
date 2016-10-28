@@ -6,6 +6,12 @@ import * as moment from "moment";
 })
 export class CatYearsPipe implements PipeTransform {
 	transform(value: string): number {
-		return Math.floor(moment().diff(moment(value), "years", true) * 7);
+		let diff = Math.floor(moment().diff(moment(value), "years", true));
+		
+		if ( diff <= 2 ) {
+			return Math.round(diff * 12.5);
+		} else {
+			return 25 + ((diff - 2) * 4);
+		}
 	}
 }
