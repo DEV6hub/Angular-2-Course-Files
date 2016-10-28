@@ -14,6 +14,7 @@
   "scripts": {
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --display-error-details",
     "postinstall": "typings install",
+    "exercise": "webpack-dev-server --config config/webpack.exercise.js --inline --progress --display-error-details --port 8080",
     "server": "webpack-dev-server --inline --progress --display-error-details --port 8080",
     "start": "npm run server",
     "test": "karma start",

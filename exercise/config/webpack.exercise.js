@@ -3,8 +3,10 @@ var webpack = require("webpack"),
 	ExtractTextPlugin = require("extract-text-webpack-plugin"),
 	helpers = require("./helpers");
 
+const exercisePath = process.env.exercise;
+
 module.exports = {
-	context: helpers.root() + "/src",
+	context: helpers.root() + "/completed/" + exercisePath + "/src",
 	entry: {
 		app: "./main.ts",
 		vendor: helpers.root() + "/common/vendor.ts",
@@ -12,7 +14,7 @@ module.exports = {
 	},
 	
 	resolve: {
-		extensions: ["", ".js", ".ts"]
+		extensions: ["", ".webpack.js", ".web.js", ".ts", ".js"]
 	},
 	
 	module: {
@@ -51,8 +53,25 @@ module.exports = {
 			name: ["app", "vendor", "polyfills"]
 		}),
 		
+		new ExtractTextPlugin("[name].css"),
+		
 		new HtmlWebpackPlugin({
 			template: "index.html"
 		})
-	]
+	],
+	
+	devtool: "source-map",
+	
+	output: {
+		path: helpers.root("dist"),
+		publicPath: "http://localhost:8080/",
+		filename: "[name].js",
+		chunkFilename: "[id].chunk.js"
+	},
+	
+	devServer: {
+		historyApiFallback: {
+			index: "http://localhost:8080/index.html"
+		}
+	}
 }
