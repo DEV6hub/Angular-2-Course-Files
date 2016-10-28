@@ -6,7 +6,7 @@ import {DogDetailComponent} from "./dog-detail.component";
 @NgModule({
 	imports: [
 		RouterModule.forChild([
-			{ path: "dogs",
+			{ path: "",
 			  component: DogsComponent,
 			  children: [
 				  { path: "", component: PetListComponent, pathMatch: "full", data: { type: "dog" } },

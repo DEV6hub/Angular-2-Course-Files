@@ -21,7 +21,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.ts$/,
-				loaders: ["ts", "angular2-router-loader"]
+				loaders: ["ts", "angular2-router-loader?debug=true"]
 			},
 			{
 				test: /\.html$/,

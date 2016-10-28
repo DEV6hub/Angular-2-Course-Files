@@ -8,9 +8,9 @@ export class PetService {
 	
 	spot: Pet = new Pet(4, "Spot", "dog", "Dalmation", "faithful pet", new Date(2008, 4, 9));
 	rover: Pet = new Pet(5, "Rover", "dog", "Basset Hound", "droopy ears", new Date(2004, 5, 30));
-	max: Pet = new Pet(6, "Max", "dog", "Husky", "frisky", new Date(2010, 8, 14));
+	yips: Pet = new Pet(6, "Yips", "dog", "Chihuahua", "lives in a purse", new Date(2014, 8, 14));
 	
-	private pets: Pet[] = [this.boots, this.mittens, this.fuzzy, this.spot, this.rover, this.max];
+	private pets: Pet[] = [this.boots, this.mittens, this.fuzzy, this.spot, this.rover, this.yips];
 	
 	favouritePet: Pet;
 	

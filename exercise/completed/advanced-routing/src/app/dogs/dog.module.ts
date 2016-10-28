@@ -9,4 +9,4 @@ import {CommonModule} from "@angular/common";
 	imports: [CommonModule, FormsModule, DogRoutingModule],
 	declarations: [DogDetailComponent, DogYearsPipe, DogsComponent],
 })
-export class DogModule {}
+export default class DogModule {}
