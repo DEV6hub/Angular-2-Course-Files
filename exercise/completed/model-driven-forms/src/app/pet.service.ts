@@ -10,6 +10,8 @@ export class PetService {
 	rover: Pet = new Pet("dog", 5, "Rover", "Basset Hound", "droopy ears", new Date(2004, 5, 30));
 	yips: Pet = new Pet("dog", 6, "Yips", "Chihuahua", "lives in a purse", new Date(2014, 8, 14));
 	
+	private increment: number = 7;
+	
 	private pets: Pet[] = [this.boots, this.mittens, this.fuzzy, this.spot, this.rover, this.yips];
 	
 	favouritePet: Pet;
@@ -24,5 +26,24 @@ export class PetService {
 	
 	getPet(id: number): Pet {
 		return this.pets.find(pet => pet.id === id);
+	}
+	
+	savePet(pet: Pet): any {
+		let idx = this.pets.findIndex(existingPet => existingPet.id === pet.id);
+		
+		if ( idx != -1 ) {
+			this.pets.splice(idx, 1, pet);
+		} else {
+			pet.id = this.increment++;
+			this.pets.push(pet);
+		}
+	}
+	
+	deletePet(pet: Pet): any {
+		let idx = this.pets.findIndex(existingPet => existingPet.id === pet.id);
+		
+		if ( idx != -1 ) {
+			this.pets.splice(idx, 1);
+		}
 	}
 }
