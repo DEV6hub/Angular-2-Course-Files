@@ -3,7 +3,7 @@ import {Http, Response, RequestOptionsArgs, BaseRequestOptions} from "@angular/h
 import {Observable} from "rxjs";
 @Injectable()
 export class HttpWrapper {
-	constructor(public http: Http) {
+	constructor(private http: Http) {
 		
 	}
 	
@@ -34,6 +34,10 @@ export class HttpWrapper {
 			
 			return Observable.throw(error);
 		});
+	}
+	
+	delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
+		return this.http.delete(url, options);
 	}
 	
 	getJSONOptions(options: RequestOptionsArgs = new BaseRequestOptions() ): RequestOptionsArgs {

@@ -40,6 +40,6 @@ export class PetService {
 	}
 	
 	deletePet(pet: Pet): any {
-		return this.httpWrapper.http.delete(`${this.baseUrl}/${pet.type}s/${pet.id}`);
+		return this.httpWrapper.delete(`${this.baseUrl}/${pet.type}s/${pet.id}`);
 	}
 }
