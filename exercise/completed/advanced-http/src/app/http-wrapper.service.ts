@@ -10,14 +10,16 @@ export class HttpWrapper {
 	get(url: string, options?: RequestOptionsArgs): Observable<Response> {
 		let jsonOptions: RequestOptionsArgs = this.getJSONOptions(options);
 		return this.http.get(url, jsonOptions)
-		.retry(2);
+		.retryWhen(error => error.delay(500))
+		.timeout(2000, new Error("request timed out"))
 	}
 	
 	post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
 		let jsonOptions: RequestOptionsArgs = this.getJSONOptions(options);
 		
 		return this.http.post(url, body, jsonOptions)
-		.retry(2);
+		.retryWhen(error => error.delay(500))
+		.timeout(2000, new Error("request timed out"))
 	}
 	
 	put(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
