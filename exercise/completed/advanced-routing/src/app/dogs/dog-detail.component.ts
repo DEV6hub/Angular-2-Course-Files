@@ -14,6 +14,9 @@ export class DogDetailComponent implements OnInit {
 	
 	ngOnInit(): any {
 		let id: number = parseInt(this.route.snapshot.params["id"]);
+		if ( isNaN(id)) {
+			this.goBack();
+		}
 		this.dog = this.petService.getPet(id);
 	}
 	

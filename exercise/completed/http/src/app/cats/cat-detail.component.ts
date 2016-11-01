@@ -1,23 +1,38 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, OnDestroy} from "@angular/core";
 import {CatService} from "./cat.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Cat} from "./cat";
+import {Subscription} from "rxjs";
 @Component({
 	selector: "cat-detail",
 	template: require("./cat-detail.component.html")
 })
-export class CatDetailComponent implements OnInit {
+export class CatDetailComponent implements OnInit, OnDestroy {
 	cat: Cat;
+	subs: Subscription[] = [];
+	
 	constructor(private catService: CatService, private route:ActivatedRoute, private router:Router) {
 		
 	}
 	
 	ngOnInit(): any {
 		let id: number = parseInt(this.route.snapshot.params["id"]);
+		
 		if ( isNaN(id)) {
 			this.goBack();
 		}
-		this.cat = this.catService.getCat(id);
+		
+		this.subs.push(this.catService.getCat(id).subscribe((cat) => {
+			this.cat = cat;
+		}));
+	}
+	
+	ngOnDestroy(): any {
+		if ( this.subs ) {
+			this.subs.forEach(sub => sub.unsubscribe());
+		}
+		
+		this.subs = [];
 	}
 	
 	setAsFavourite(): any {
@@ -33,7 +48,8 @@ export class CatDetailComponent implements OnInit {
 	}
 	
 	deleteCat(): any {
-		this.catService.deleteCat(this.cat);
-		this.goBack();
+		this.subs.push(this.catService.deleteCat(this.cat).subscribe((result) => {
+			this.goBack();
+		}));
 	}
 }

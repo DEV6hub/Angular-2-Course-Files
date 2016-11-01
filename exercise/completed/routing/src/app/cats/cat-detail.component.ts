@@ -14,6 +14,9 @@ export class CatDetailComponent implements OnInit {
 	
 	ngOnInit(): any {
 		let id: number = parseInt(this.route.snapshot.params["id"]);
+		if ( isNaN(id)) {
+			this.goBack();
+		}
 		this.cat = this.catService.getCat(id);
 	}
 	
