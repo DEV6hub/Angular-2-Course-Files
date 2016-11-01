@@ -10,7 +10,7 @@ export class CatYearsPipe implements PipeTransform {
 		
 		if ( diff <= 2 ) {
 			diff = Math.floor(moment().diff(moment(value), "months", true));
-			return Math.round(25 / diff);
+			return Math.round(diff / 24 * 25);
 		} else {
 			return 25 + ((diff - 2) * 4);
 		}
