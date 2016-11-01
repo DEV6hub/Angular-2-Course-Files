@@ -27,8 +27,10 @@ export class HttpWrapper {
 			console.log("error: " + error.status);
 			switch (error.status) {
 				case 401:
+					// do something
 					break;
 				case 403:
+					// do something
 					break;
 			}
 			
