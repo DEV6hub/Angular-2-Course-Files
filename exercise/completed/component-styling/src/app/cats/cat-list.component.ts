@@ -5,7 +5,8 @@ import {Router} from "@angular/router";
 import {Observable} from "rxjs";
 @Component({
 	selector: "cat-list",
-	template: require("./cat-list.component.html")
+	template: require("./cat-list.component.html"),
+	styles: [require("./cat-list.component.scss")]
 })
 export class CatListComponent {
 	favouriteCat: Cat;

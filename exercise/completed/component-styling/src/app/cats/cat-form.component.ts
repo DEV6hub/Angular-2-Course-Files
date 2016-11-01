@@ -7,7 +7,8 @@ import {Subscription} from "rxjs";
 
 @Component({
 	selector: "cat-form",
-	template: require("./cat-form.component.html")
+	template: require("./cat-form.component.html"),
+	styles: [require("./cat-form.component.scss")]
 })
 
 export class CatFormComponent implements OnInit, OnDestroy {
