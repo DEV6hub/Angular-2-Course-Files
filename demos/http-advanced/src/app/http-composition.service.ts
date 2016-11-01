@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, BaseRequestOptions, RequestOptionsArgs, Response, Request, ResponseType} from "@angular/http";
+import {Http, BaseRequestOptions, RequestOptionsArgs, Response, ResponseType} from "@angular/http";
 import {Observable} from "rxjs";
 
 @Injectable()

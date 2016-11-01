@@ -7,19 +7,19 @@ const Dog = require('../models/dog');
 
 let rover = new Dog('Rover');
 rover.id = 1;
-rover.type = 'Golden Retriever';
+rover.breed = 'Golden Retriever';
 rover.description = 'Loves to play fetch';
 rover.birthday = new Date(2006, 4, 20);
 
 let bandit = new Dog('Bandit');
 bandit.id = 2;
-bandit.type = 'Border Collie';
+bandit.breed = 'Border Collie';
 bandit.description = 'Has a large dark patch of fur around left eye';
 bandit.birthday = new Date(2013, 8, 7);
 
 let beethoven = new Dog('Beethoven');
 beethoven.id = 3;
-beethoven.type = 'St. Bernard';
+beethoven.breed = 'St. Bernard';
 beethoven.description = 'May or may not come with a whisky barrel';
 beethoven.birthday = new Date(2016, 0, 25);
 
