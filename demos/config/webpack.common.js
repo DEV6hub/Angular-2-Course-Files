@@ -10,8 +10,8 @@ module.exports = {
 	context: helpers.root() + "/" + lessonPath + "/src",
 	entry: {
 		app: "./main.ts",
-		vendor: "./../../common/vendor.ts",
-		polyfills: "./../../common/polyfills.ts"
+		vendor: helpers.root() + "/common/vendor.ts",
+		polyfills: helpers.root() + "/common/polyfills.ts"
 	},
 	
 	resolve: {
