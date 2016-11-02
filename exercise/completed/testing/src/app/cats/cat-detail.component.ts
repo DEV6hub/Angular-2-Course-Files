@@ -5,8 +5,7 @@ import {Cat} from "./cat";
 import {Subscription} from "rxjs";
 @Component({
 	selector: "cat-detail",
-	template: require("./cat-detail.component.html"),
-	styles: [require("./cat-detail.component.scss")]
+	template: require("./cat-detail.component.html")
 })
 export class CatDetailComponent implements OnInit, OnDestroy {
 	cat: Cat;
