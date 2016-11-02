@@ -1,6 +1,7 @@
 var webpack = require("webpack"),
 	HtmlWebpackPlugin = require("html-webpack-plugin"),
 	ExtractTextPlugin = require("extract-text-webpack-plugin"),
+	CopyWebpackPlugin = require("copy-webpack-plugin"),
 	helpers = require("./helpers");
 
 const exercisePath = process.env.exercise;
@@ -54,6 +55,10 @@ module.exports = {
 		}),
 		
 		new ExtractTextPlugin("[name].css"),
+		
+		new CopyWebpackPlugin([{
+			from: "i18n", to: "i18n"
+		}]),
 		
 		new HtmlWebpackPlugin({
 			template: "index.html"
